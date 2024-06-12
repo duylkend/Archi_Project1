@@ -1,0 +1,50 @@
+Microsoft Windows [Version 10.0.22621.3593]
+(c) Microsoft Corporation. All rights reserved.
+
+D:\Architecture\ArcProject1>ssh -i "C:\Users\leduy\.ssh\duylk1.pem" ec2-user@ec2-18-236-166-150.us-west-2.compute.amazonaws.com
+Last login: Wed Jun 12 18:20:40 2024 from 27.75.176.156
+   ,     #_
+   ~\_  ####_        Amazon Linux 2
+  ~~  \_#####\
+  ~~     \###|       AL2 End of Life is 2025-06-30.
+  ~~       \#/ ___
+   ~~       V~' '->
+    ~~~         /    A newer version of Amazon Linux is available!
+      ~~._.   _/
+         _/ _/       Amazon Linux 2023, GA and supported until 2028-03-15.
+       _/m/'           https://aws.amazon.com/linux/amazon-linux-2023/
+
+No packages needed for security; 3 packages available
+Run "sudo yum update" to apply all updates.
+[ec2-user@ip-10-2-11-214 ~]$ mysql -u admin -h secondarydatabase.civfu8eavdla.us-west-2.rds.amazonaws.com -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.35 Source distribution
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use udacity;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> insert into testTable(test) values('project1');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from testTable;
++----------+
+| test     |
++----------+
+| project1 |
+| project1 |
++----------+
+2 rows in set (0.01 sec)
+
+mysql>

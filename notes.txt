@@ -1,0 +1,43 @@
+Create new file vpc for regions 2
+Create cloud formation
+Script
+    cd cloudformation
+    aws cloudformation create-stack --stack-name cd1908-project-stack --template-body file://vpc1.yaml --parameters file://vpc1-parameters.json  --region us-east-1
+    aws cloudformation create-stack --stack-name cd1908-project-stack-secondary --template-body file://vpc2.yaml --parameters file://vpc2-parameters.json --region us-west-2
+
+Create a new RDS Subnet group 
+    Choosing service Amazon RDS
+    Create RDS > Subnet groups
+        Name: anything
+        VPC: primary VPC
+        Subnet: Choosing 2 private Subnet
+    Create a new MySQL
+        Create MySQL
+
+    
+Note command
+P1
+    Create EC2 using amazon linux 2.
+    VPC
+    Public Subnet
+    ssh
+
+    Using Script
+        Ssh: ssh -i "C:\Users\leduy\.ssh\duylk.pem" ec2-user@ec2-3-236-133-10.compute-1.amazonaws.com
+    Install mysqld
+        sudo amazon-linux-extras install epel -y
+        sudo yum install https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm
+        sudo yum install mysql-community-server
+        #systemctl active mysqld
+        #systemctl start mysqld
+        #systemctl status mysqld
+        #sudo mysql_secure_installation
+        mysql --version
+        mysql -u admin -h database-1.c3valhjee8lo.us-east-1.rds.amazonaws.com -p
+        use udacity;
+        create table testTable(test nvarchar(10));
+        insert into testTable(test) values('project1');
+        select * from testTable;
+
+P2
+    

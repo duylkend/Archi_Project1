@@ -1,0 +1,441 @@
+Microsoft Windows [Version 10.0.22621.3593]
+(c) Microsoft Corporation. All rights reserved.
+
+D:\Architecture\ArcProject1>ssh -i "C:\Users\leduy\.ssh\duylk.pem" ec2-user@ec2-3-236-133-10.compute-1.amazonaws.com
+The authenticity of host 'ec2-3-236-133-10.compute-1.amazonaws.com (3.236.133.10)' can't be established.
+ED25519 key fingerprint is SHA256:JLQTlm9e+iCeeAjYmbK3XwcNyk6S8uHle/Gk56rtC8k.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'ec2-3-236-133-10.compute-1.amazonaws.com' (ED25519) to the list of known hosts.
+   ,     #_
+   ~\_  ####_        Amazon Linux 2
+  ~~  \_#####\
+  ~~     \###|       AL2 End of Life is 2025-06-30.
+  ~~       \#/ ___
+   ~~       V~' '->
+    ~~~         /    A newer version of Amazon Linux is available!
+      ~~._.   _/
+         _/ _/       Amazon Linux 2023, GA and supported until 2028-03-15.
+       _/m/'           https://aws.amazon.com/linux/amazon-linux-2023/
+
+No packages needed for security; 3 packages available
+Run "sudo yum update" to apply all updates.
+[ec2-user@ip-10-1-10-171 ~]$ sudo yum update -y
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+Resolving Dependencies
+--> Running transaction check
+---> Package aws-cfn-bootstrap.noarch 0:2.0-29.amzn2 will be updated
+---> Package aws-cfn-bootstrap.noarch 0:2.0-30.amzn2 will be an update
+---> Package kernel.x86_64 0:5.10.218-208.862.amzn2 will be installed
+---> Package kernel-tools.x86_64 0:5.10.217-205.860.amzn2 will be updated
+---> Package kernel-tools.x86_64 0:5.10.218-208.862.amzn2 will be an update
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=========================================================================================================================================================================================================================
+ Package                                             Arch                                     Version                                                     Repository                                                Size
+=========================================================================================================================================================================================================================
+Installing:
+ kernel                                              x86_64                                   5.10.218-208.862.amzn2                                      amzn2extra-kernel-5.10                                    34 M
+Updating:
+ aws-cfn-bootstrap                                   noarch                                   2.0-30.amzn2                                                amzn2-core                                               751 k
+ kernel-tools                                        x86_64                                   5.10.218-208.862.amzn2                                      amzn2extra-kernel-5.10                                   215 k
+
+Transaction Summary
+=========================================================================================================================================================================================================================
+Install  1 Package
+Upgrade  2 Packages
+
+Total download size: 35 M
+Downloading packages:
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+(1/3): aws-cfn-bootstrap-2.0-30.amzn2.noarch.rpm                                                                                                                                                  | 751 kB  00:00:00     
+(2/3): kernel-tools-5.10.218-208.862.amzn2.x86_64.rpm                                                                                                                                             | 215 kB  00:00:00     
+(3/3): kernel-5.10.218-208.862.amzn2.x86_64.rpm                                                                                                                                                   |  34 MB  00:00:00     
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                                                                     54 MB/s |  35 MB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : kernel-5.10.218-208.862.amzn2.x86_64                                                                                                                                                                  1/5 
+  Updating   : aws-cfn-bootstrap-2.0-30.amzn2.noarch                                                                                                                                                                 2/5 
+  Updating   : kernel-tools-5.10.218-208.862.amzn2.x86_64                                                                                                                                                            3/5 
+  Cleanup    : aws-cfn-bootstrap-2.0-29.amzn2.noarch                                                                                                                                                                 4/5 
+  Cleanup    : kernel-tools-5.10.217-205.860.amzn2.x86_64                                                                                                                                                            5/5 
+  Verifying  : kernel-tools-5.10.218-208.862.amzn2.x86_64                                                                                                                                                            1/5 
+  Verifying  : aws-cfn-bootstrap-2.0-30.amzn2.noarch                                                                                                                                                                 2/5 
+  Verifying  : kernel-5.10.218-208.862.amzn2.x86_64                                                                                                                                                                  3/5 
+  Verifying  : kernel-tools-5.10.217-205.860.amzn2.x86_64                                                                                                                                                            4/5 
+  Verifying  : aws-cfn-bootstrap-2.0-29.amzn2.noarch                                                                                                                                                                 5/5 
+
+Installed:
+  kernel.x86_64 0:5.10.218-208.862.amzn2
+
+Updated:
+  aws-cfn-bootstrap.noarch 0:2.0-30.amzn2                                                                  kernel-tools.x86_64 0:5.10.218-208.862.amzn2
+
+Complete!
+[ec2-user@ip-10-1-10-171 ~]$ sudo dnf install mysql-community-client -y
+sudo: dnf: command not found
+[ec2-user@ip-10-1-10-171 ~]$ sudo yum install mysql-community-client -y
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+No package mysql-community-client available.
+Error: Nothing to do
+[ec2-user@ip-10-1-10-171 ~]$ sudo wget https://dev.mysql.com/get/mysql80-community-release-el8-1.noarch.rpm
+--2024-06-12 16:37:15--  https://dev.mysql.com/get/mysql80-community-release-el8-1.noarch.rpm
+Resolving dev.mysql.com (dev.mysql.com)... 104.104.81.123, 2600:1408:5400:4a7::2e31, 2600:1408:5400:4b3::2e31
+Connecting to dev.mysql.com (dev.mysql.com)|104.104.81.123|:443... connected.
+HTTP request sent, awaiting response... 302 Moved Temporarily
+Location: https://repo.mysql.com//mysql80-community-release-el8-1.noarch.rpm [following]
+--2024-06-12 16:37:16--  https://repo.mysql.com//mysql80-community-release-el8-1.noarch.rpm
+Resolving repo.mysql.com (repo.mysql.com)... 23.62.123.104, 2600:1408:ec00:f89::1d68, 2600:1408:ec00:f8e::1d68
+Connecting to repo.mysql.com (repo.mysql.com)|23.62.123.104|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 30388 (30K) [application/x-redhat-package-manager]
+Saving to: ‘mysql80-community-release-el8-1.noarch.rpm’
+
+100%[===============================================================================================================================================================================>] 30,388      --.-K/s   in 0.007s   
+
+2024-06-12 16:37:16 (4.29 MB/s) - ‘mysql80-community-release-el8-1.noarch.rpm’ saved [30388/30388]
+
+[ec2-user@ip-10-1-10-171 ~]$ sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
+[ec2-user@ip-10-1-10-171 ~]$ sudo yum update -y
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+No packages marked for update
+[ec2-user@ip-10-1-10-171 ~]$ sudo yum install mysql-community-client -y
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+No package mysql-community-client available.
+Error: Nothing to do
+[ec2-user@ip-10-1-10-171 ~]$ sudo yum repolist all
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+repo id                                                                                         repo name                                                                                                 status
+amzn2-core/2/x86_64                                                                             Amazon Linux 2 core repository                                                                            enabled: 35,343
+amzn2-core-debuginfo/2/x86_64                                                                   Amazon Linux 2 core repository - debuginfo packages                                                       disabled       
+amzn2-core-source/2                                                                             Amazon Linux 2 core repository - source packages                                                          disabled       
+amzn2extra-docker/2/x86_64                                                                      Amazon Extras repo for docker                                                                             enabled:    109
+amzn2extra-docker-debuginfo/2/x86_64                                                            Amazon Extras debuginfo repo for docker                                                                   disabled       
+amzn2extra-docker-source/2                                                                      Amazon Extras source repo for docker                                                                      disabled       
+amzn2extra-kernel-5.10/2/x86_64                                                                 Amazon Extras repo for kernel-5.10                                                                        enabled:    542
+amzn2extra-kernel-5.10-debuginfo/2/x86_64                                                       Amazon Extras debuginfo repo for kernel-5.10                                                              disabled       
+amzn2extra-kernel-5.10-source/2                                                                 Amazon Extras source repo for kernel-5.10                                                                 disabled       
+repolist: 35,994
+[ec2-user@ip-10-1-10-171 ~]$ sudo dnf install mysql-community-client -y
+sudo: dnf: command not found
+[ec2-user@ip-10-1-10-171 ~]$ cat /etc/os-release
+NAME="Amazon Linux"
+VERSION="2"
+ID="amzn"
+ID_LIKE="centos rhel fedora"
+VERSION_ID="2"
+PRETTY_NAME="Amazon Linux 2"
+ANSI_COLOR="0;33"
+CPE_NAME="cpe:2.3:o:amazon:amazon_linux:2"
+HOME_URL="https://amazonlinux.com/"
+SUPPORT_END="2025-06-30"
+[ec2-user@ip-10-1-10-171 ~]$ 
+[ec2-user@ip-10-1-10-171 ~]$ sudo yum update
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+amzn2-core                                                                                                                                                                                        | 3.6 kB  00:00:00     
+No packages marked for update
+[ec2-user@ip-10-1-10-171 ~]$ sudo amazon-linux-extras install epel -y
+Installing epel-release
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+Cleaning repos: amzn2-core amzn2extra-docker amzn2extra-epel amzn2extra-kernel-5.10
+17 metadata files removed
+6 sqlite files removed
+0 metadata files removed
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+amzn2-core                                                                                                                                                                                        | 3.6 kB  00:00:00     
+amzn2extra-docker                                                                                                                                                                                 | 2.9 kB  00:00:00     
+amzn2extra-epel                                                                                                                                                                                   | 3.0 kB  00:00:00     
+amzn2extra-kernel-5.10                                                                                                                                                                            | 3.0 kB  00:00:00     
+(1/9): amzn2-core/2/x86_64/group_gz                                                                                                                                                               | 2.7 kB  00:00:00     
+(2/9): amzn2-core/2/x86_64/updateinfo                                                                                                                                                             | 935 kB  00:00:00     
+(3/9): amzn2extra-epel/2/x86_64/primary_db                                                                                                                                                        | 1.8 kB  00:00:00     
+(4/9): amzn2extra-kernel-5.10/2/x86_64/updateinfo                                                                                                                                                 |  67 kB  00:00:00     
+(5/9): amzn2extra-docker/2/x86_64/updateinfo                                                                                                                                                      |  16 kB  00:00:00     
+(6/9): amzn2extra-docker/2/x86_64/primary_db                                                                                                                                                      | 102 kB  00:00:00     
+(7/9): amzn2extra-epel/2/x86_64/updateinfo                                                                                                                                                        |   76 B  00:00:00     
+(8/9): amzn2extra-kernel-5.10/2/x86_64/primary_db                                                                                                                                                 |  27 MB  00:00:00     
+(9/9): amzn2-core/2/x86_64/primary_db                                                                                                                                                             |  68 MB  00:00:01     
+Resolving Dependencies
+--> Running transaction check
+---> Package epel-release.noarch 0:7-11 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=========================================================================================================================================================================================================================
+ Package                                                Arch                                             Version                                         Repository                                                 Size 
+=========================================================================================================================================================================================================================
+Installing:
+ epel-release                                           noarch                                           7-11                                            amzn2extra-epel                                            15 k 
+
+Transaction Summary
+=========================================================================================================================================================================================================================
+Install  1 Package
+
+Total download size: 15 k
+Installed size: 24 k
+Downloading packages:
+epel-release-7-11.noarch.rpm                                                                                                                                                                      |  15 kB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : epel-release-7-11.noarch                                                                                                                                                                              1/1 
+  Verifying  : epel-release-7-11.noarch                                                                                                                                                                              1/1 
+
+Installed:
+  epel-release.noarch 0:7-11
+
+Complete!
+  2  httpd_modules            available    [ =1.0  =stable ]
+  3  memcached1.5             available    \
+        [ =1.5.1  =1.5.16  =1.5.17 ]
+  9  R3.4                     available    [ =3.4.3  =stable ]
+ 10  rust1                    available    \
+        [ =1.22.1  =1.26.0  =1.26.1  =1.27.2  =1.31.0  =1.38.0
+          =stable ]
+ 18  libreoffice              available    \
+        [ =5.0.6.2_15  =5.3.6.1  =stable ]
+ 19  gimp                     available    [ =2.8.22 ]
+ 20 †docker=latest            enabled      \
+        [ =17.12.1  =18.03.1  =18.06.1  =18.09.9  =stable ]
+ 21  mate-desktop1.x          available    \
+        [ =1.19.0  =1.20.0  =stable ]
+ 22  GraphicsMagick1.3        available    \
+        [ =1.3.29  =1.3.32  =1.3.34  =stable ]
+ 24  epel=latest              enabled      [ =7.11  =stable ]
+ 25  testing                  available    [ =1.0  =stable ]
+ 26  ecs                      available    [ =stable ]
+ 27 †corretto8                available    \
+        [ =1.8.0_192  =1.8.0_202  =1.8.0_212  =1.8.0_222  =1.8.0_232
+          =1.8.0_242  =stable ]
+ 32  lustre2.10               available    \
+        [ =2.10.5  =2.10.8  =stable ]
+ 33 †java-openjdk11           available    [ =11  =stable ]
+ 34  lynis                    available    [ =stable ]
+ 36  BCC                      available    [ =0.x  =stable ]
+ 37  mono                     available    [ =5.x  =stable ]
+ 38  nginx1                   available    [ =stable ]
+ 40  mock                     available    [ =stable ]
+ 43  livepatch                available    [ =stable ]
+ 44 †python3.8                available    [ =stable ]
+ 45  haproxy2                 available    [ =stable ]
+ 46  collectd                 available    [ =stable ]
+ 47  aws-nitro-enclaves-cli   available    [ =stable ]
+ 48  R4                       available    [ =stable ]
+  _  kernel-5.4               available    [ =stable ]
+ 50  selinux-ng               available    [ =stable ]
+ 52  tomcat9                  available    [ =stable ]
+ 53  unbound1.13              available    [ =stable ]
+ 54 †mariadb10.5              available    [ =stable ]
+ 55  kernel-5.10=latest       enabled      [ =stable ]
+ 56  redis6                   available    [ =stable ]
+ 58 †postgresql12             available    [ =stable ]
+ 59 †postgresql13             available    [ =stable ]
+ 60  mock2                    available    [ =stable ]
+ 61  dnsmasq2.85              available    [ =stable ]
+ 62  kernel-5.15              available    [ =stable ]
+ 63 †postgresql14             available    [ =stable ]
+ 64  firefox                  available    [ =stable ]
+ 65  lustre                   available    [ =stable ]
+ 66 †php8.1                   available    [ =stable ]
+ 67  awscli1                  available    [ =stable ]
+ 68 †php8.2                   available    [ =stable ]
+ 69  dnsmasq                  available    [ =stable ]
+ 70  unbound1.17              available    [ =stable ]
+ 72  collectd-python3         available    [ =stable ]
+† Note on end-of-support. Use 'info' subcommand.
+[ec2-user@ip-10-1-10-171 ~]$ sudo yum install https://dev.mysql.com/get/mysql80-community-release-el7-5.noarch.rpm
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+mysql80-community-release-el7-5.noarch.rpm                                                                                                                                                        |  11 kB  00:00:00     
+Examining /var/tmp/yum-root-gY3w7M/mysql80-community-release-el7-5.noarch.rpm: mysql80-community-release-el7-5.noarch
+Marking /var/tmp/yum-root-gY3w7M/mysql80-community-release-el7-5.noarch.rpm to be installed
+Resolving Dependencies
+--> Running transaction check
+---> Package mysql80-community-release.noarch 0:el7-5 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=========================================================================================================================================================================================================================
+ Package                                                   Arch                                   Version                                  Repository                                                               Size 
+=========================================================================================================================================================================================================================
+Installing:
+ mysql80-community-release                                 noarch                                 el7-5                                    /mysql80-community-release-el7-5.noarch                                 9.1 k 
+
+Transaction Summary
+=========================================================================================================================================================================================================================
+Install  1 Package
+
+Total size: 9.1 k
+Installed size: 9.1 k
+Is this ok [y/d/N]: yes
+Downloading packages:
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : mysql80-community-release-el7-5.noarch                                                                                                                                                                1/1 
+  Verifying  : mysql80-community-release-el7-5.noarch                                                                                                                                                                1/1 
+
+Installed:
+  mysql80-community-release.noarch 0:el7-5
+
+Complete!
+[ec2-user@ip-10-1-10-171 ~]$ sudo yum install mysql-community-server
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+290 packages excluded due to repository priority protections
+Resolving Dependencies
+--> Running transaction check
+---> Package mysql-community-server.x86_64 0:8.0.37-1.el7 will be installed
+--> Processing Dependency: mysql-community-common(x86-64) = 8.0.37-1.el7 for package: mysql-community-server-8.0.37-1.el7.x86_64
+--> Processing Dependency: mysql-community-icu-data-files = 8.0.37-1.el7 for package: mysql-community-server-8.0.37-1.el7.x86_64
+--> Processing Dependency: mysql-community-client(x86-64) >= 8.0.11 for package: mysql-community-server-8.0.37-1.el7.x86_64
+--> Running transaction check
+---> Package mysql-community-client.x86_64 0:8.0.37-1.el7 will be installed
+--> Processing Dependency: mysql-community-client-plugins = 8.0.37-1.el7 for package: mysql-community-client-8.0.37-1.el7.x86_64
+--> Processing Dependency: mysql-community-libs(x86-64) >= 8.0.11 for package: mysql-community-client-8.0.37-1.el7.x86_64
+--> Processing Dependency: libncurses.so.5()(64bit) for package: mysql-community-client-8.0.37-1.el7.x86_64
+--> Processing Dependency: libtinfo.so.5()(64bit) for package: mysql-community-client-8.0.37-1.el7.x86_64
+---> Package mysql-community-common.x86_64 0:8.0.37-1.el7 will be installed
+---> Package mysql-community-icu-data-files.x86_64 0:8.0.37-1.el7 will be installed
+--> Running transaction check
+---> Package mariadb-libs.x86_64 1:5.5.68-1.amzn2.0.1 will be obsoleted
+--> Processing Dependency: libmysqlclient.so.18()(64bit) for package: 2:postfix-2.10.1-6.amzn2.0.4.x86_64
+--> Processing Dependency: libmysqlclient.so.18(libmysqlclient_18)(64bit) for package: 2:postfix-2.10.1-6.amzn2.0.4.x86_64
+---> Package mysql-community-client-plugins.x86_64 0:8.0.37-1.el7 will be installed
+---> Package mysql-community-libs.x86_64 0:8.0.37-1.el7 will be obsoleting
+---> Package ncurses-compat-libs.x86_64 0:6.0-8.20170212.amzn2.1.8 will be installed
+--> Running transaction check
+---> Package mysql-community-libs-compat.x86_64 0:8.0.37-1.el7 will be obsoleting
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=========================================================================================================================================================================================================================
+ Package                                                        Arch                                   Version                                                   Repository                                         Size 
+=========================================================================================================================================================================================================================
+Installing:
+ mysql-community-libs                                           x86_64                                 8.0.37-1.el7                                              mysql80-community                                 1.5 M 
+     replacing  mariadb-libs.x86_64 1:5.5.68-1.amzn2.0.1
+ mysql-community-libs-compat                                    x86_64                                 8.0.37-1.el7                                              mysql80-community                                 670 k 
+     replacing  mariadb-libs.x86_64 1:5.5.68-1.amzn2.0.1
+ mysql-community-server                                         x86_64                                 8.0.37-1.el7                                              mysql80-community                                  65 M 
+Installing for dependencies:
+ mysql-community-client                                         x86_64                                 8.0.37-1.el7                                              mysql80-community                                  16 M 
+ mysql-community-client-plugins                                 x86_64                                 8.0.37-1.el7                                              mysql80-community                                 3.5 M 
+ mysql-community-common                                         x86_64                                 8.0.37-1.el7                                              mysql80-community                                 666 k 
+ mysql-community-icu-data-files                                 x86_64                                 8.0.37-1.el7                                              mysql80-community                                 2.2 M
+ ncurses-compat-libs                                            x86_64                                 6.0-8.20170212.amzn2.1.8                                  amzn2-core                                        309 k 
+
+Transaction Summary
+=========================================================================================================================================================================================================================
+Install  3 Packages (+5 Dependent packages)
+
+Total download size: 90 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/8): mysql-community-client-plugins-8.0.37-1.el7.x86_64.rpm                                                                                                                                     | 3.5 MB  00:00:00     
+(2/8): mysql-community-common-8.0.37-1.el7.x86_64.rpm                                                                                                                                             | 666 kB  00:00:00     
+(3/8): mysql-community-icu-data-files-8.0.37-1.el7.x86_64.rpm                                                                                                                                     | 2.2 MB  00:00:00     
+(4/8): mysql-community-client-8.0.37-1.el7.x86_64.rpm                                                                                                                                             |  16 MB  00:00:00     
+(5/8): mysql-community-libs-8.0.37-1.el7.x86_64.rpm                                                                                                                                               | 1.5 MB  00:00:00     
+(6/8): mysql-community-libs-compat-8.0.37-1.el7.x86_64.rpm                                                                                                                                        | 670 kB  00:00:00     
+(7/8): ncurses-compat-libs-6.0-8.20170212.amzn2.1.8.x86_64.rpm                                                                                                                                    | 309 kB  00:00:00     
+(8/8): mysql-community-server-8.0.37-1.el7.x86_64.rpm                                                                                                                                             |  65 MB  00:00:00     
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                                                                     94 MB/s |  90 MB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : mysql-community-common-8.0.37-1.el7.x86_64                                                                                                                                                            1/9 
+  Installing : mysql-community-client-plugins-8.0.37-1.el7.x86_64                                                                                                                                                    2/9 
+  Installing : mysql-community-libs-8.0.37-1.el7.x86_64                                                                                                                                                              3/9 
+  Installing : ncurses-compat-libs-6.0-8.20170212.amzn2.1.8.x86_64                                                                                                                                                   4/9 
+  Installing : mysql-community-client-8.0.37-1.el7.x86_64                                                                                                                                                            5/9 
+  Installing : mysql-community-icu-data-files-8.0.37-1.el7.x86_64                                                                                                                                                    6/9 
+  Installing : mysql-community-server-8.0.37-1.el7.x86_64                                                                                                                                                            7/9 
+  Installing : mysql-community-libs-compat-8.0.37-1.el7.x86_64                                                                                                                                                       8/9 
+  Erasing    : 1:mariadb-libs-5.5.68-1.amzn2.0.1.x86_64                                                                                                                                                              9/9 
+  Verifying  : mysql-community-libs-8.0.37-1.el7.x86_64                                                                                                                                                              1/9 
+  Verifying  : mysql-community-icu-data-files-8.0.37-1.el7.x86_64                                                                                                                                                    2/9 
+  Verifying  : mysql-community-libs-compat-8.0.37-1.el7.x86_64                                                                                                                                                       3/9 
+  Verifying  : mysql-community-client-8.0.37-1.el7.x86_64                                                                                                                                                            4/9 
+  Verifying  : ncurses-compat-libs-6.0-8.20170212.amzn2.1.8.x86_64                                                                                                                                                   5/9 
+  Verifying  : mysql-community-server-8.0.37-1.el7.x86_64                                                                                                                                                            6/9 
+  Verifying  : mysql-community-client-plugins-8.0.37-1.el7.x86_64                                                                                                                                                    7/9 
+  Verifying  : mysql-community-common-8.0.37-1.el7.x86_64                                                                                                                                                            8/9 
+  Verifying  : 1:mariadb-libs-5.5.68-1.amzn2.0.1.x86_64                                                                                                                                                              9/9 
+
+Installed:
+  mysql-community-libs.x86_64 0:8.0.37-1.el7                           mysql-community-libs-compat.x86_64 0:8.0.37-1.el7                           mysql-community-server.x86_64 0:8.0.37-1.el7
+
+Dependency Installed:
+  mysql-community-client.x86_64 0:8.0.37-1.el7            mysql-community-client-plugins.x86_64 0:8.0.37-1.el7   mysql-community-common.x86_64 0:8.0.37-1.el7   mysql-community-icu-data-files.x86_64 0:8.0.37-1.el7     
+  ncurses-compat-libs.x86_64 0:6.0-8.20170212.amzn2.1.8
+
+Replaced:
+  mariadb-libs.x86_64 1:5.5.68-1.amzn2.0.1
+
+Complete!
+[ec2-user@ip-10-1-10-171 ~]$ systemctl active mysqld
+Unknown operation 'active'.
+[ec2-user@ip-10-1-10-171 ~]$ systemctl start mysqld
+Failed to start mysqld.service: The name org.freedesktop.PolicyKit1 was not provided by any .service files
+See system logs and 'systemctl status mysqld.service' for details.
+[ec2-user@ip-10-1-10-171 ~]$ systemctl status mysqld
+● mysqld.service - MySQL Server
+   Loaded: loaded (/usr/lib/systemd/system/mysqld.service; enabled; vendor preset: disabled)
+   Active: inactive (dead)
+     Docs: man:mysqld(8)
+           http://dev.mysql.com/doc/refman/en/using-systemd.html
+[ec2-user@ip-10-1-10-171 ~]$ sudo mysql_secure_installation
+
+Securing the MySQL server deployment.
+
+Enter password for user root:
+Error: Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2)
+[ec2-user@ip-10-1-10-171 ~]$ mysql --version
+mysql  Ver 8.0.37 for Linux on x86_64 (MySQL Community Server - GPL)
+[ec2-user@ip-10-1-10-171 ~]$ mysql -u admin -h database-1.c3valhjee8lo.us-east-1.rds.amazonaws.com -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 64
+Server version: 8.0.35 Source distribution
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database testdb;
+Query OK, 1 row affected (0.06 sec)
+
+mysql> use udacity;
+Database changed
+mysql> create table testTable(test nvarchar(10));
+Query OK, 0 rows affected, 1 warning (0.17 sec)
+
+mysql> insert into testTable(test) values('project1');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from testTable
+    ->
+    -> ;
++----------+
+| test     |
++----------+
+| project1 |
++----------+
+1 row in set (0.00 sec)
+
+mysql>
